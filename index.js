@@ -252,7 +252,7 @@ client.ev.on("messages.upsert", async (chatUpdate) => {
 	}    
 	if (!fridayActive) return;        
 	
-	if (isGroup && userMessage) {                       
+	if (!isGroup && userMessage) {                       
 		const botReply = await fetchResponse(userMessage, sender, messageTimestamp);                                                    await client.sendMessage(sender, { text: botReply });                                      
 	}
 } catch (err) {
@@ -325,7 +325,7 @@ const getGreeting = () => {
     if (currentHour >= 5 && currentHour < 12) return "Good morning 🌄";  
     if (currentHour >= 12 && currentHour < 18) return "Good afternoon ☀️";  
     if (currentHour >= 18 && currentHour < 22) return "Good evening 🌆";  
-    return "Good night 😴";  
+    return "Night Homie";  
   };  
 
   const message = `${getGreeting()},
